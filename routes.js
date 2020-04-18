@@ -38,10 +38,10 @@ app.put("/api/workouts/:id", function(req, res) {
     db.Workout.findOneAndUpdate(
         {_id: req.params.id},
         {$push:{exercises:req.body}}, (error,response) => {
-        if(error){
-            console.log(error)
+        if(error){console.log(error)}else{
+            res.json(response);
         }
-        res.json(response);
+      
     });
 });
 

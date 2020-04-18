@@ -17,7 +17,7 @@ app.use(express.static("public"));
 // Routes
 mongoose.connect("mongodb://localhost/workouts",{ useNewUrlParser: true, useFindAndModify: false,useUnifiedTopology: true });
 
-const Routes = require("./routes/routes");
+const Routes = require("./routes");
 app.use(Routes);
 
 app.listen(PORT, () => {
