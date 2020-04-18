@@ -21,16 +21,24 @@ app.get("/exercise", function (req, res) {
 // API ROUTES
 // Finds all workouts
 app.get("/api/workouts", function (req, res) {
-    db.Workout.find().then(results => {
+    db.Workout.find()
+    .then(results => {
         res.json(results);
+    })
+    .catch(err =>{
+        res.json(err)
     })
 });
 
 // Create workout
 app.post("/api/workouts", function (req, res) {
     console.log(req.body);
-  db.Workout.create(req.body).then(results => {
+  db.Workout.create(req.body)
+  .then(results => {
       res.json(results);
+  })
+  .catch(err =>{
+      res.json(err)
   });
 });
 
@@ -42,12 +50,19 @@ app.put("/api/workouts/:id", function(req, res) {
             res.json(response);
         }
       
+    })
+    .catch(err =>{
+        res.json(err)
     });
 });
 
 app.get("/api/workouts/range", function(req,res){
-    db.Workout.find({}).then(results =>{
+    db.Workout.find({})
+    .then(results =>{
         res.json(results);
+    })
+    .catch(err =>{
+        res.json(err)
     })
 });
 
